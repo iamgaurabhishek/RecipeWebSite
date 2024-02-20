@@ -1,0 +1,172 @@
+<div class="row flex-lg-row-reverse align-items-center g-5 py-4 mb-4">
+    <div class="col-12 col-lg-6">
+        <img src="/img/Mask group.png" width="600" height="500" class="d-block mx-lg-auto img-fluid" Loading="lazy" alt="Cooking">
+    </div>
+    <div class="col-12 col-lg-6">
+        <h1 class="display-5 fw-bold mb-3">Delicious cuisines idea</h1>
+        <p class="lead">
+            Discover our extensive collection of delicious recipe ideas, which includes quick bakes, family-friendly dinners, delicious pasta recipes, easy desserts, and gluten-free foods.
+        </p>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+            <a href="/explore-latest" class="btn btn-primary btn-dark btn-lg px-4 me-md-2">Discover Latest</a>
+            <a href="/random-recipe" class="btn btn-outline-secondary btn-lg px-4 me-md-2">Show Random</a>
+        </div>
+    </div>
+</div>
+
+<!-- Categories -->
+
+<div class="row row-cols-2 row-cols-lg-6 g-2 g-lg-3 py-4">
+    <% if(categories != "") { %>
+        <% categories.forEach(function(category, index) { %>
+            <a href="/categories/<%- category.name  %>" class="col text-center category__link">
+                <div class="category__img shadow">
+                    <img src="/img/<%- category.image  %>" alt="<%- category.name  %>" Loading="lazy">
+                </div>
+                <div class="pt-1"><%- category.name  %></div>
+            </a>
+        <% }) %>
+    <% } %>
+    <a href="/categories" class="col text-center category__link">
+        <div class="category__img shadow">
+            <img src="/img/recipe.jpg" alt="View All" Loading="lazy">
+        </div>
+        <div class="pt-1">View All</div>
+    </a>
+</div>
+
+
+<!---------------->
+
+<!--Latest-->
+
+<section class="pb-4 pt-4">
+    <div class="d-flex mb-2 align-items-center">
+        <h2>Latest Recipes</h2>
+        <a href="/explore/latest" class="ms-auto">View More</a>
+    </div>
+
+    <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+
+        <% if(food != '') { %>
+            <% food.latest.forEach(function(recipe, index){ %>
+                <a href="/recipe/<%=  recipe._id %>" class="col text-center category__link">
+                    <div class="category__img category__img--large shadow">
+                        <img src="/img/<%=  recipe.image %>" alt="<%=  recipe.name %>" Loading="lazy">
+                    </div>
+                    <div class="pt-1"><%=  recipe.name %></div>
+                </a>
+            <% }) %>
+        <% } %>
+    </div>
+
+</section>
+
+<!---------------->
+
+
+
+
+<!--Latest Indian-->
+
+<section class="pb-4 pt-4">
+    <div class="d-flex mb-2 align-items-center">
+        <h2>Indian Recipes</h2>
+        <a href="/categories/Indian" class="ms-auto">View More</a>
+    </div>
+
+    <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+
+        <% if(typeof food.indian !== "undefined" && food.indian.length > 0) { %>
+            <% food.indian.forEach(function(recipe, index){ %>
+                <a href="/recipe/<%=  recipe._id %>" class="col text-center category__link">
+                    <div class="category__img category__img--large shadow">
+                        <img src="/img/<%=  recipe.image %>" alt="<%=  recipe.name %>" Loading="lazy">
+                    </div>
+                    <div class="pt-1"><%=  recipe.name %></div>
+                </a>
+            <% }) %>
+            <% } else { %>
+                <p>No items found.</p>
+            <% } %>
+    </div>
+
+</section>
+
+<!---------------->
+
+
+
+
+<!--Latest Italian-->
+
+<section class="pb-4 pt-4">
+    <div class="d-flex mb-2 align-items-center">
+        <h2>Italian Recipes</h2>
+        <a href="/categories/Italian" class="ms-auto">View More</a>
+    </div>
+
+    <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+
+        <% if(typeof food.italian !== "undefined" && food.italian.length > 0) { %>
+            <% food.italian.forEach(function(recipe, index){ %>
+                <a href="/recipe/<%=  recipe._id %>" class="col text-center category__link">
+                    <div class="category__img category__img--large shadow">
+                        <img src="/img/<%=  recipe.image %>" alt="<%=  recipe.name %>" Loading="lazy">
+                    </div>
+                    <div class="pt-1"><%=  recipe.name %></div>
+                </a>
+            <% }) %>
+            <% } else { %>
+                <p>No items found.</p>
+            <% } %>
+    </div>
+
+</section>
+
+<!---------------->
+
+
+<!--Latest Chinese-->
+
+<section class="pb-4 pt-4">
+    <div class="d-flex mb-2 align-items-center">
+        <h2>Chinese Recipes</h2>
+        <a href="/categories/Chinese" class="ms-auto">View More</a>
+    </div>
+
+    <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+
+        <% if(typeof food.chinese !== "undefined" && food.chinese.length > 0) { %>
+            <% food.chinese.forEach(function(recipe, index){ %>
+                <a href="/recipe/<%=  recipe._id %>" class="col text-center category__link">
+                    <div class="category__img category__img--large shadow">
+                        <img src="/img/<%=  recipe.image %>" alt="<%=  recipe.name %>" Loading="lazy">
+                    </div>
+                    <div class="pt-1"><%=  recipe.name %></div>
+                </a>
+            <% }) %>
+        <% } else { %>
+            <p>No items found.</p>
+        <% } %>
+    </div>
+
+</section>
+
+<!---------------->
+
+
+
+
+<!--Submit-->
+<section class="px-4 py-5 my-5 text-center">
+    <img src="/img/Below.png" class="d-block mx-auto mb-4 img-fluid" alt="Post your recipe now for free." width="560" height="200" Loading="lazy">
+    <h1 class="display-5 fw-bold">Post your recipe now for free.</h1>
+    <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4">Post your recipe for free to the public.</p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <a href="/submit-recipe" class="btn btn-primary btn-dark btn-lg">Submit Recipe</a>
+        </div>
+    </div>
+</section>
+<!---------------->
